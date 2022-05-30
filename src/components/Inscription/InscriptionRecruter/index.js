@@ -146,9 +146,9 @@ function InscriptionRecruter() {
               // controlled form field
               handleChangeForm(e);
               // send request to API with controlled form fiel value
-              dispatch(searchCity());
+              // dispatch(searchCity());
               // display the result of API request under the field input
-              dispatch(searchCityDisplay());
+              // dispatch(searchCityDisplay());
             }}
           />
           {
