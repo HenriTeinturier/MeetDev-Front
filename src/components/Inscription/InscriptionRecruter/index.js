@@ -8,12 +8,11 @@ import {
   chooseAvatarModal,
   logout,
   searchCityClose,
-  searchCityDisplay,
   setFromInscriptionRoute,
   toggleWindowLog,
 } from '../../../actions/settings';
 import { registerRecruiter, registerRecruiterCancel } from '../../../actions/formRegisterRecruiter';
-import { inscriptionRecruiter, searchCity } from '../../../actions/middleware';
+import { inscriptionRecruiter } from '../../../actions/middleware';
 // == Import avatars
 import companyAvatar1 from '../../../assets/avatars/avatar_company1.png';
 import companyAvatar2 from '../../../assets/avatars/avatar_company2.png';
