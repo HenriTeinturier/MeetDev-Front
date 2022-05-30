@@ -411,6 +411,7 @@ function ProfilDev() {
             type="button"
             onClick={() => {
               dispatch(copyProfilDevToTemp(profilDev));
+              window.scrollTo(0, 0);
             }}
           >
             Modifier

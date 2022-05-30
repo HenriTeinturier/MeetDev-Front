@@ -20,6 +20,7 @@
 }
 
 .chooseAvatarContainer {
+  position: fixed;
   z-index: 3;
   margin-top: 15rem;
   background-color: vars.$mainBackground;

@@ -20,6 +20,7 @@
 }
 
 .chooseStackContainer {
+  position: fixed;
   margin-top: 15rem;
   z-index: 3;
   background-color: vars.$mainBackground;

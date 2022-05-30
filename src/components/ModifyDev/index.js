@@ -331,6 +331,7 @@ function ModifyDev() {
                 // dispatch(inscriptionDev());
                 // dispatch(toggleWindowLog());
                 dispatch(validateModifyDev());
+                window.scrollTo(0, 0);
               }}
             >
               Valider
@@ -341,9 +342,9 @@ function ModifyDev() {
             <button
               type="button"
               className="inscription__form__buttons__button--cancel"
-              // onClick={() => {
-              //   dispatch(logout());
-              // }}
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
             >Annuler
             </button>
           </Link>

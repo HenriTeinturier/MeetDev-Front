@@ -148,6 +148,7 @@ function RecruiterProfile() {
             onClick={() => {
               // console.log(profilRec);
               dispatch(handlecopy());
+              window.scrollTo(0, 0);
             }}
           >
             Modifier

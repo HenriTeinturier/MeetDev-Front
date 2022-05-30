@@ -235,6 +235,7 @@ function BurgerMenu() {
                       onClick={() => {
                         closeMenu();
                         dispatch(copyProfilDevToTemp(profilDev));
+                        window.scrollTo(0, 0);
                       }}
                     >
                       <NavLink to="/modifier">Modifier profil</NavLink>
@@ -247,6 +248,7 @@ function BurgerMenu() {
                       onClick={() => {
                         closeMenu();
                         dispatch(handlecopy());
+                        window.scrollTo(0, 0);
                       }}
                     >
                       <NavLink to="/recherche">Recherche</NavLink>
@@ -272,6 +274,7 @@ function BurgerMenu() {
                       onClick={() => {
                         closeMenu();
                         dispatch(handlecopy());
+                        window.scrollTo(0, 0);
                       }}
                     >
                       <NavLink to="/modifier">Modifier profil</NavLink>
@@ -284,6 +287,7 @@ function BurgerMenu() {
                       onClick={() => {
                         closeMenu();
                         dispatch(setFromSearchRoute());
+                        window.scrollTo(0, 0);
                       }}
                     >
                       <NavLink to="/recherche">Recherche</NavLink>
@@ -306,6 +310,7 @@ function BurgerMenu() {
                           closeMenu();
                           dispatch(setFromFavoritesRoute());
                           dispatch(recruiterFavorites());
+                          window.scrollTo(0, 0);
                         }
                       }
                     >
@@ -326,6 +331,7 @@ function BurgerMenu() {
                       closeMenu();
                       dispatch(logout());
                       dispatch(setFromAway());
+                      window.scrollTo(0, 0);
                     }
                   }
                 >
