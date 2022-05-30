@@ -67,10 +67,6 @@ function BurgerMenu() {
   // function to select state formLogin
   const formLogin = useSelector((state) => state.formLogin.login);
 
-  // configure apparition effect burger menu (framer-motion)
-  const animateFrom = { opacity: 0, x: -40 }; // start effect
-  const animateTo = { opacity: 1, x: 0 }; // end effect
-
   // configure animation apparition form login
   const loginAnimation = {
     key: 'login',
@@ -82,13 +78,17 @@ function BurgerMenu() {
   // configure animation apparition burger menu
   const burgerMenuAnimation = {
     key: 'burgerMenu',
-    initial: { x: '-100vw', opacity: 0.7 },
+    initial: { x: '-100vw', opacity: 1 },
     animate: {
       x: 0, opacity: 1,
     },
-    exit: { x: '-100vw', opacity: 0.7 },
-    transition: { duration: 0.3, type: 'tween' },
+    // exit: { x: '-100vw', opacity: 1 },
+    transition: { duration: 0, type: 'tween' },
   };
+
+  // configure apparition effect burger menu (framer-motion)
+  const animateFrom = { x: -200 }; // start effect
+  const animateTo = { x: 0 }; // end effect
 
   return (
   // to use framer-motion on element we need to rename his balise html with "motion."
@@ -100,21 +100,21 @@ function BurgerMenu() {
 
         {/* close button burger menu */}
         <AiOutlineCloseCircle className={isDarkMode ? 'burgerMenu__exit dark' : 'burgerMenu__exit'} onClick={() => dispatch(burgerMenuOpen())} />
-        <AnimatePresence>
-          {
+        {/* <AnimatePresence> */}
+        {
             burgerMenu && (
             <motion.ul
               className={isDarkMode ? 'burgerMenu__items dark' : 'burgerMenu__items'}
               {...burgerMenuAnimation}
             >
               {/* if not Logged display connexion button + en Savoir +*/}
-              <AnimatePresence>
+              {/* <AnimatePresence> */}
                 { !logged && (
                 <>
                   <motion.li
                     initial={animateFrom}
                     animate={animateTo}
-                    transition={{ delay: 0.15 }}
+                    transition={{ duration: 0.2 }}
                     className={isDarkMode ? 'burgerMenu__items--log dark' : 'burgerMenu__items--log'}
                     onClick={() => {
                     // dispatch(toggleWindowLog());
@@ -126,7 +126,7 @@ function BurgerMenu() {
                     Connexion
                   </motion.li>
                   {/* If click on Connexion open form login menu burger */}
-                  <AnimatePresence>
+                  {/* <AnimatePresence> */}
                     {
               isLogin && (
                 <motion.div {...loginAnimation}>
@@ -152,24 +152,24 @@ function BurgerMenu() {
                 </motion.div>
               )
             }
-                  </AnimatePresence>
+                  {/* </AnimatePresence> */}
 
-                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.25 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
+                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.15, duration: 0.2 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
                     <NavLink to="/">
                       Meet Dev
                     </NavLink>
                   </motion.li>
-                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.35 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
+                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.25, duration: 0.2 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
                     <NavLink to="/home-developer">
                       Je suis développeur
                     </NavLink>
                   </motion.li>
-                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.45 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
+                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.35, duration: 0.2 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
                     <NavLink to="/home-recruiter">
                       Je suis recruteur
                     </NavLink>
                   </motion.li>
-                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.55 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
+                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.45, duration: 0.2 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
                     <NavLink to="/en-savoir-plus">
                       En savoir plus
                     </NavLink>
@@ -177,7 +177,7 @@ function BurgerMenu() {
 
                 </>
                 )}
-              </AnimatePresence>
+              {/* </AnimatePresence> */}
               {
             logged && (
               <>
@@ -201,7 +201,7 @@ function BurgerMenu() {
                     <motion.li
                       initial={animateFrom}
                       animate={animateTo}
-                      transition={{ delay: 0.45 }}
+                      transition={{ delay: 0.35 }}
                       className="burgerMenu__items--item"
                       onClick={() => {
                         closeMenu();
@@ -210,7 +210,12 @@ function BurgerMenu() {
                     >
                       <NavLink to="/recherche">Recherche</NavLink>
                     </motion.li>
-                    <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.65 }} className="burgerMenu__items--item" onClick={closeMenu}>Mes messages</motion.li>
+                    {
+                      /*
+                      <motion.li initial={animateFrom} animate={animateTo}
+                      transition={{ delay: 0.40 }} className="burgerMenu
+                      items--item" onClick={closeMenu}>Mes messages</motion.li> */
+                      }
 
                   </>
                 )}
@@ -233,7 +238,7 @@ function BurgerMenu() {
                     <motion.li
                       initial={animateFrom}
                       animate={animateTo}
-                      transition={{ delay: 0.45 }}
+                      transition={{ delay: 0.35 }}
                       className="burgerMenu__items--item"
                       onClick={() => {
                         closeMenu();
@@ -242,11 +247,18 @@ function BurgerMenu() {
                     >
                       <NavLink to="/recherche">Recherche</NavLink>
                     </motion.li>
-                    <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.65 }} className="burgerMenu__items--item" onClick={closeMenu}>Mes messages</motion.li>
+                    {/* <motion.li
+                      initial={animateFrom}
+                      animate={animateTo}
+                      transition={{ delay: 0.65 }}
+                      className="burgerMenu__items--item"
+                      onClick={closeMenu}
+                    >Mes messages
+                    </motion.li> */}
                     <motion.li
                       initial={animateFrom}
                       animate={animateTo}
-                      transition={{ delay: 0.55 }}
+                      transition={{ delay: 0.45 }}
                       className="burgerMenu__items--item"
                       onClick={
                         () => {
@@ -266,8 +278,8 @@ function BurgerMenu() {
                 <motion.li
                   initial={animateFrom}
                   animate={animateTo}
-                  transition={{ delay: 0.75 }}
-                  className="burgerMenu__items--log"
+                  transition={{ delay: 0.45, duration: 0.2 }}
+                  className={isDarkMode ? 'burgerMenu__items--log dark' : 'burgerMenu__items--log'}
                   onClick={
                     () => {
                       closeMenu();
@@ -288,7 +300,7 @@ function BurgerMenu() {
 
             )
         }
-        </AnimatePresence>
+        {/* </AnimatePresence> */}
         <div className="burgerMenu__opacity" onClick={() => dispatch(burgerMenuOpen())}> </div>
       </motion.div>
     </AnimatePresence>
