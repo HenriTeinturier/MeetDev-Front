@@ -1,6 +1,7 @@
 @use '../../styles/vars';
 
 .navigationMobile {
+  position: relative;
   transition: 0.2s;
   height: 10vh;
   min-height: 75px;
