@@ -40,7 +40,7 @@ const sendMailApi = (store) => (next) => (action) => {
       axios
         .get(
 
-          `${baseUrl}/public/api/secure/users/contact`,
+          `${baseUrl}/api/secure/users/contact`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ const sendMailApi = (store) => (next) => (action) => {
 
             params: {
               // testEmail: mailToSend,
-              testEmail: 'brocard.c@gmail.com',
+              testEmail: 'henri.teinturier@gmail.com',
               // testEmail: 'henri.teinturier@gmail.com',
               sender_user_id: sender,
               receiver_user_id: receiver,
