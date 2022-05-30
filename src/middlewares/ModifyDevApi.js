@@ -4,8 +4,19 @@ import axios from 'axios';
 import { VALIDATE_MODIFY_DEV } from '../actions/middleware';
 // == Import action creator
 import { majProfilDevFromApi } from '../actions/profilDev';
-
-// const navigate = useNavigate();
+/*
+    permet de récupérer dans la variable d'environnement (.env)
+    l'url du serveur selon que l'on soit en production ou en dévelopment.
+  */
+let baseUrl;
+if (process.env.NODE_ENV === 'development') {
+  // console.log(process.env.REACT_APP_PUBLIC_DEV_URL);
+  baseUrl = process.env.REACT_APP_PUBLIC_DEV_URL;
+}
+else if (process.env.NODE_ENV === 'production') {
+  // console.log(process.env.REACT_APP_PUBLIC_PROD_URL);
+  baseUrl = process.env.REACT_APP_PUBLIC_PROD_URL;
+}
 
 const ModifyDevApi = (store) => (next) => (action) => {
   switch (action.type) {
@@ -65,7 +76,7 @@ const ModifyDevApi = (store) => (next) => (action) => {
         language: '', // non pris en compte: Obligatoire?
       };
 
-      const url = `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/${userId}`;
+      const url = `${baseUrl}/api/secure/users/${userId}`;
       console.log('ligne 68');
       axios.put(url, params, config).then((response) => {
         console.log(response.data);

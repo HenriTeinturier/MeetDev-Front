@@ -53,7 +53,7 @@ export const initialState = {
     burgerMenuOpen: false,
     burgerLogin: false,
     loading: false,
-    darkMode: false,
+    darkMode: true,
   },
 };
 

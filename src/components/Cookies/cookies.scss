@@ -1,18 +1,48 @@
 @use '../../styles/vars';
 $cookieDot: rgb(24, 7, 7) 6px,
 transparent 6px;
-$bg:vars.$mainBackground;
+$bg:vars.$mainBackgroundformDark;
+$bgDark:vars.$mainBackgroundformDark;
 
 .cookies {
   transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
-  min-height: 80vh;
+  // min-height: 80vh;
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 150%;
+  // ajout pour la transformer en modale
+  position: absolute;
+  z-index: 1001;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  // margin-left: 2rem;
+  // margin-top: calc(80vh - 40vh);
+  bottom: 0;
+
+  // width: 40rem;
+  width: 100%;
+  max-width: 1024px;
+  height: 25rem;
+  border-radius: 0.8rem;
+
+  @media (max-width: 1024px) {
+    // width: 35rem;
+  }
+
+  @media (max-width: 650px) {
+    // width: 100%;
+    height: 20rem;
+    margin-left: 0rem;
+  }
+
+  @media (max-width: 400px) {
+    // width: 100%;
+    height: 25rem;
+    margin-left: 0rem;
+  }
 
   &__title {
     margin: 1rem auto;
@@ -23,7 +53,10 @@ $bg:vars.$mainBackground;
     margin-bottom: 1em;
   }
 
-  &__content {}
+  &__content {
+    padding: 0;
+    z-index: 1010;
+  }
 
   &__button {
     display: flex;
@@ -40,6 +73,7 @@ $bg:vars.$mainBackground;
 
 
     &--agree {
+      z-index: 1005;
       border: none;
       background-color: vars.$mainColor;
       color: vars.$mainBackground;
@@ -60,6 +94,7 @@ $bg:vars.$mainBackground;
     }
 
     &--disagree {
+      z-index: 1005;
       border: none;
       background-color: vars.$cancelOption;
       color: vars.$mainBackground;
@@ -106,7 +141,7 @@ $bg:vars.$mainBackground;
   transition: 0.2s;
 
   &.cookies {
-    background-color: vars.$mainBackgroundDark;
+    background-color: vars.$mainBackgroundformDark;
   }
 
   &.cookies__title {
@@ -132,13 +167,14 @@ $bg:vars.$mainBackground;
 
 
 #all {
-  top: 13rem;
+  z-index: 1001;
+  // top: 13rem;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 3rem;
   margin: auto;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   position: absolute;
   border-radius: 50%;
   background-color: #FF8800;
@@ -153,7 +189,15 @@ $bg:vars.$mainBackground;
     radial-gradient(circle at 150px 130px, $cookieDot);
 
   @media (max-width: 1024px) {
-    top: 18rem;
+    left: initial;
+    right: 8rem;
+    bottom: 5rem;
+    z-index: 1001;
+
+  }
+
+  @media (max-width: 925px) {
+    display: none;
   }
 
   &:before {
@@ -167,6 +211,7 @@ $bg:vars.$mainBackground;
     left: 0;
     animation: bit 3s linear infinite;
     opacity: 0;
+    z-index: 1001;
   }
 }
 

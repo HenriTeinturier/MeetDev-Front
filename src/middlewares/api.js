@@ -10,6 +10,21 @@ import {
 } from '../actions/settings';
 
 const apiMiddleWare = (store) => (next) => (action) => {
+  /*
+    permet de récupérer dans la variable d'environnement (.env)
+    l'url du serveur selon que l'on soit en production ou en dévelopment.
+  */
+  let baseUrl;
+  if (process.env.NODE_ENV === 'development') {
+    // console.log(process.env.REACT_APP_PUBLIC_DEV_URL);
+    baseUrl = process.env.REACT_APP_PUBLIC_DEV_URL;
+  }
+  else if (process.env.NODE_ENV === 'production') {
+    // console.log(process.env.REACT_APP_PUBLIC_PROD_URL);
+    baseUrl = process.env.REACT_APP_PUBLIC_PROD_URL;
+  }
+  // console.log(`${baseUrl}/api/login`);
+
   switch (action.type) {
     // TODO changer le nom de cette action.
     // Login rentrait en conflit avec une autre action d'un autre reducer
@@ -17,7 +32,8 @@ const apiMiddleWare = (store) => (next) => (action) => {
       const state = store.getState();
       const { email, password } = state.formLogin.login;
       axios.post(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login',
+        // 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login',
+        `${baseUrl}/api/login`,
         // ou url: 'http://localhost/api/users:8000',
         {
           email_address: email,
