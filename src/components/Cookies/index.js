@@ -14,9 +14,7 @@ function Cookies() {
     <div className={isDark ? 'cookies dark' : 'cookies'}>
       <h3 className={isDark ? 'cookies__title dark' : 'cookies__title'}>Nous utilisons des cookies</h3>
       <p className={isDark ? 'cookies__content dark' : 'cookies__content'}>Nous utilisons des cookies et d'autres technologies de suivi pour améliorer
-        votre expérience de navigation sur notre site, pour vous montrer un contenu personnalisé
-        et des publicités ciblées, pour analyser le trafic de notre site
-        et pour comprendre la provenance de nos visiteurs.
+        votre expérience de navigation sur notre site.
       </p>
       <div className="cookies__button">
         {/* button to close the window and TODO accept the cookies */}

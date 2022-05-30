@@ -2,6 +2,19 @@
 import axios from 'axios';
 // == Import action
 import { INSCRIPTION_RECRUITER } from '../actions/middleware';
+/*
+    permet de récupérer dans la variable d'environnement (.env)
+    l'url du serveur selon que l'on soit en production ou en dévelopment.
+  */
+let baseUrl;
+if (process.env.NODE_ENV === 'development') {
+  // console.log(process.env.REACT_APP_PUBLIC_DEV_URL);
+  baseUrl = process.env.REACT_APP_PUBLIC_DEV_URL;
+}
+else if (process.env.NODE_ENV === 'production') {
+  // console.log(process.env.REACT_APP_PUBLIC_PROD_URL);
+  baseUrl = process.env.REACT_APP_PUBLIC_PROD_URL;
+}
 
 const inscriptionRecruiterApi = (store) => (next) => (action) => {
   switch (action.type) {
@@ -36,7 +49,7 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
       // const { description } = state.formRegisterRecruiter.register;
 
       axios.post(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/register/users/recruiters',
+        `${baseUrl}/api/register/users/recruiters`,
         // ou url: 'http://localhost/api/users:8000',
         {
           lastname: lastname,

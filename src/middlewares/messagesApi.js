@@ -4,6 +4,19 @@ import axios from 'axios';
 import { contactDevRaz } from '../actions/formDevContact';
 // == Import action
 import { SEND_MAIL } from '../actions/messageAction';
+/*
+    permet de récupérer dans la variable d'environnement (.env)
+    l'url du serveur selon que l'on soit en production ou en dévelopment.
+  */
+let baseUrl;
+if (process.env.NODE_ENV === 'development') {
+  // console.log(process.env.REACT_APP_PUBLIC_DEV_URL);
+  baseUrl = process.env.REACT_APP_PUBLIC_DEV_URL;
+}
+else if (process.env.NODE_ENV === 'production') {
+  // console.log(process.env.REACT_APP_PUBLIC_PROD_URL);
+  baseUrl = process.env.REACT_APP_PUBLIC_PROD_URL;
+}
 
 const sendMailApi = (store) => (next) => (action) => {
   switch (action.type) {
@@ -27,7 +40,7 @@ const sendMailApi = (store) => (next) => (action) => {
       axios
         .get(
 
-          'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/contact',
+          `${baseUrl}/public/api/secure/users/contact`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
