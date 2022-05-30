@@ -374,6 +374,7 @@ function ProfilDev() {
                     className="profilDev__buttons--button"
                     type="button"
                     onClick={() => {
+                      window.scrollTo(0, 0);
                     }}
                   >
                     Retour
@@ -388,6 +389,7 @@ function ProfilDev() {
                     className="profilDev__buttons--button"
                     type="button"
                     onClick={() => {
+                      window.scrollTo(0, 0);
                     }}
                   >
                     Retour
