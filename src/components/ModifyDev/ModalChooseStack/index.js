@@ -9,6 +9,7 @@ import './modalChooseStack.scss';
 function ModalChooseStack() {
   // state to know user languages
   const stacks = useSelector((state) => state.profilDevModifyTemp.register.technology);
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   // console.log(stacks.includes('react'));
   const dispatch = useDispatch();
   // function to select languages
@@ -18,15 +19,15 @@ function ModalChooseStack() {
 
   return (
     <div
-      className="chooseStackBackground"
+      className={isDark ? 'chooseStackBackground dark' : 'chooseStackBackground'}
     >
-      <div className="chooseStackContainer">
+      <div className={isDark ? 'chooseStackContainer dark' : 'chooseStackContainer'}>
         <h2 className="chooseStackContainer--title">
           Langages
         </h2>
 
         <div className="chooseStackContainer__stacks">
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -38,7 +39,7 @@ function ModalChooseStack() {
             />
             JavaScript
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -49,7 +50,7 @@ function ModalChooseStack() {
             />
             HTML/CSS
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -60,7 +61,7 @@ function ModalChooseStack() {
             />
             Python
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -71,7 +72,7 @@ function ModalChooseStack() {
             />
             Java
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -82,7 +83,7 @@ function ModalChooseStack() {
             />
             TypeScript
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -93,7 +94,7 @@ function ModalChooseStack() {
             />
             C#
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -104,7 +105,7 @@ function ModalChooseStack() {
             />
             C/C++
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -115,7 +116,7 @@ function ModalChooseStack() {
             />
             PHP
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -126,7 +127,7 @@ function ModalChooseStack() {
             />
             Kotlin
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -137,7 +138,7 @@ function ModalChooseStack() {
             />
             Go
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -148,7 +149,7 @@ function ModalChooseStack() {
             />
             Rust
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -159,7 +160,7 @@ function ModalChooseStack() {
             />
             Swift
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -177,7 +178,7 @@ function ModalChooseStack() {
         </h2>
 
         <div className="chooseStackContainer__stacks">
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -188,7 +189,7 @@ function ModalChooseStack() {
             />
             Node.js
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -199,7 +200,7 @@ function ModalChooseStack() {
             />
             React
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -210,7 +211,7 @@ function ModalChooseStack() {
             />
             Symfony
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -221,7 +222,7 @@ function ModalChooseStack() {
             />
             VueJs
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -232,7 +233,7 @@ function ModalChooseStack() {
             />
             React Native
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -243,7 +244,7 @@ function ModalChooseStack() {
             />
             jQuery
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -254,7 +255,7 @@ function ModalChooseStack() {
             />
             Express
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -265,7 +266,7 @@ function ModalChooseStack() {
             />
             Laravel
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -276,7 +277,7 @@ function ModalChooseStack() {
             />
             Angular
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -287,7 +288,7 @@ function ModalChooseStack() {
             />
             Django
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -306,7 +307,7 @@ function ModalChooseStack() {
         </h2>
 
         <div className="chooseStackContainer__stacks">
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -317,7 +318,7 @@ function ModalChooseStack() {
             />
             MySQL
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -335,7 +336,7 @@ function ModalChooseStack() {
         </h2>
 
         <div className="chooseStackContainer__stacks">
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
@@ -346,7 +347,7 @@ function ModalChooseStack() {
             />
             Git
           </div>
-          <div className="chooseStackContainer__stack">
+          <div className={isDark ? 'chooseStackContainer__stack dark' : 'chooseStackContainer__stack'}>
             <input
               className="chooseStackContainer__stack--checkbox"
               type="checkbox"
