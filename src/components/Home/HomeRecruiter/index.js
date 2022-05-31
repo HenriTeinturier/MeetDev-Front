@@ -42,6 +42,9 @@ function HomeRecruiter() {
           <button
             type="button"
             className="homerecruiter__button--inscription"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
           >
             Inscription Gratuite
           </button>
@@ -59,7 +62,10 @@ function HomeRecruiter() {
           <button
             type="button"
             className={isDark ? 'homerecruiter__button--back dark' : 'homerecruiter__button--back'}
-            onClick={() => dispatch(logout())}
+            onClick={() => {
+              dispatch(logout());
+              window.scrollTo(0, 0);
+            }}
           >Retour
           </button>
         </Link>
