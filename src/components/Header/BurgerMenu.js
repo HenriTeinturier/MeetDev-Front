@@ -221,6 +221,7 @@ function BurgerMenu() {
                   className="burgerMenu__items--item"
                   onClick={() => {
                     window.scrollTo(0, 0); closeMenu();
+                    dispatch(setFromAway());
                   }}
                 ><NavLink to="/profil">Mon profil</NavLink>
                 </motion.li>
@@ -246,6 +247,7 @@ function BurgerMenu() {
                       transition={{ delay: 0.35 }}
                       className="burgerMenu__items--item"
                       onClick={() => {
+                        dispatch(setFromSearchRoute());
                         closeMenu();
                         dispatch(handlecopy());
                         window.scrollTo(0, 0);
