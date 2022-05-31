@@ -19,7 +19,7 @@
   color: vars.$mainColor;
   background-color: vars.$mainBackground;
 
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     display: none;
   }
 
