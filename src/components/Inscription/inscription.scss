@@ -161,7 +161,7 @@
         border: 2px solid vars.$mainColor;
         padding: 0 1rem vars.$mainFontGrey;
         background-color: vars.$mainBackground;
-        border-radius: 8px;    
+        border-radius: 8px;
       }
 
       &--error {
@@ -170,9 +170,9 @@
         border: 2px solid vars.$mainColor;
         padding: 0 1rem vars.$mainFontGrey;
         background-color: vars.$mainBackground;
-        border-radius: 8px;  
+        border-radius: 8px;
         border: solid 2px rgb(207, 0, 15);
-        background-color:rgba(207, 0, 15, 0.1);  
+        background-color: rgba(207, 0, 15, 0.1);
       }
 
       &--stack {
