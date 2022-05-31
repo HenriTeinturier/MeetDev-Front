@@ -153,11 +153,23 @@ function BurgerMenu() {
               )
             }
                   {/* </AnimatePresence> */}
-
                   <motion.li
                     initial={animateFrom}
                     animate={animateTo}
                     transition={{ delay: 0.15, duration: 0.2 }}
+                    className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'}
+                    onClick={() => {
+                      window.scrollTo(0, 0); closeMenu();
+                    }}
+                  >
+                    <NavLink to="/en-savoir-plus">
+                      En savoir plus
+                    </NavLink>
+                  </motion.li>
+                  <motion.li
+                    initial={animateFrom}
+                    animate={animateTo}
+                    transition={{ delay: 0.25, duration: 0.2 }}
                     className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'}
                     onClick={() => {
                       window.scrollTo(0, 0); closeMenu();
@@ -170,7 +182,7 @@ function BurgerMenu() {
                   <motion.li
                     initial={animateFrom}
                     animate={animateTo}
-                    transition={{ delay: 0.25, duration: 0.2 }}
+                    transition={{ delay: 0.35, duration: 0.2 }}
                     className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'}
                     onClick={() => {
                       window.scrollTo(0, 0); closeMenu();
@@ -183,7 +195,7 @@ function BurgerMenu() {
                   <motion.li
                     initial={animateFrom}
                     animate={animateTo}
-                    transition={{ delay: 0.35, duration: 0.2 }}
+                    transition={{ delay: 0.45, duration: 0.2 }}
                     className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'}
                     onClick={() => {
                       window.scrollTo(0, 0); closeMenu();
@@ -193,20 +205,6 @@ function BurgerMenu() {
                       Je suis recruteur
                     </NavLink>
                   </motion.li>
-                  <motion.li
-                    initial={animateFrom}
-                    animate={animateTo}
-                    transition={{ delay: 0.45, duration: 0.2 }}
-                    className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'}
-                    onClick={() => {
-                      window.scrollTo(0, 0); closeMenu();
-                    }}
-                  >
-                    <NavLink to="/en-savoir-plus">
-                      En savoir plus
-                    </NavLink>
-                  </motion.li>
-
                 </>
                 )}
               {/* </AnimatePresence> */}

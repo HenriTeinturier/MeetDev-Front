@@ -17,7 +17,13 @@ function NavigationMobile() {
       { burgerModalOpen && (
         <BurgerMenu />
       )}
-      <div className="navigationMobile__header">
+      <div
+        className="navigationMobile__header"
+        onClick={() => {
+          // console.log(profilRec);
+          window.scrollTo(0, 0);
+        }}
+      >
         <img
           className="navigationMobile__header--img"
           src={rocket}
