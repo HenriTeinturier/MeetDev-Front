@@ -69,13 +69,27 @@ function Home() {
           <form className="home__choice">
             <Link to="/home-developer">
               {/* button to go in the home page developer */}
-              <button className="home__choice--button" type="button" onClick={() => dispatch(isDev())}>
+              <button
+                className="home__choice--button"
+                type="button"
+                onClick={() => {
+                  dispatch(isDev());
+                  window.scrollTo(0, 0);
+                }}
+              >
                 Dev
               </button>
             </Link>
             <Link to="/home-recruiter">
               {/* button to go in the home page recruiter */}
-              <button className="home__choice--button" type="button" onClick={() => dispatch(isRecruiter())}>
+              <button
+                className="home__choice--button"
+                type="button"
+                onClick={() => {
+                  dispatch(isRecruiter());
+                  window.scrollTo(0, 0);
+                }}
+              >
                 Recruteur
               </button>
             </Link>

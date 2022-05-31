@@ -38,6 +38,9 @@ function HomeDeveloper() {
           <button
             type="button"
             className="homedeveloper__button--inscription"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
           >
             Inscription Gratuite
           </button>
@@ -55,7 +58,10 @@ function HomeDeveloper() {
           <button
             type="button"
             className={isDark ? 'homedeveloper__button--back dark' : 'homedeveloper__button--back'}
-            onClick={() => dispatch(logout())}
+            onClick={() => {
+              dispatch(logout());
+              window.scrollTo(0, 0);
+            }}
           >Retour
           </button>
         </Link>
