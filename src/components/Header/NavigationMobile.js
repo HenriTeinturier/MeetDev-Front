@@ -23,7 +23,13 @@ function NavigationMobile() {
           src={rocket}
           alt="logo fusée"
         />
-        <div className="navigationMobile__header--title">
+        <div
+          className="navigationMobile__header--title"
+          onClick={() => {
+            // console.log(profilRec);
+            window.scrollTo(0, 0);
+          }}
+        >
           Meet Dev
         </div>
       </div>
