@@ -156,6 +156,7 @@ function ModifyRecruiter() {
                 // dispatch(inscriptionDev());
                 // dispatch(toggleWindowLog());
                 dispatch(validateModifyRecruiter());
+                window.scrollTo(0, 0);
               }}
             >
               Valider
@@ -166,6 +167,9 @@ function ModifyRecruiter() {
             <button
               type="submit"
               className={isDark ? 'inscriptionRecruiter__form__buttons__button--cancel dark' : 'inscriptionRecruiter__form__buttons__button--cancel'}
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
             >
               Annuler
             </button>
