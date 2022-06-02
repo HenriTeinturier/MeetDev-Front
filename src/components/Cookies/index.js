@@ -23,6 +23,8 @@ function Cookies() {
           className={isDark ? 'cookies__button--agree dark' : 'cookies__button--agree'}
           onClick={() => {
             dispatch(closeCookies());
+            // save in sessionStorage user cookiesChoice
+            sessionStorage.setItem('cookiesChoice', JSON.stringify('accepted'));
           }}
         >J'accepte
         </button>
@@ -32,6 +34,8 @@ function Cookies() {
           className={isDark ? 'cookies__button--disagree dark' : 'cookies__button--disagree'}
           onClick={() => {
             dispatch(closeCookies());
+            // save in sessionStorage user cookiesChoice
+            sessionStorage.setItem('cookiesChoice', JSON.stringify('refused'));
             // console.log('refuse button');
           }}
         >Je refuse

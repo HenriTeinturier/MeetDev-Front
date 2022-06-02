@@ -1,6 +1,6 @@
 // == Import npm
 import { Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 
 // == Import components
@@ -26,11 +26,25 @@ import RocketLoading from '../RocketLoading';
 
 // == Import styles
 import './meetdev.scss';
+import { closeCookies } from '../../actions/settings';
 
 // == Component
 function MeetDev() {
   // state to know if the login modal is open or close
   const windowLog = useSelector((state) => state.settings.log.windowLog);
+  const dispatch = useDispatch();
+  // Verif if choice for cookies is in localStorage
+  if (JSON.parse(sessionStorage.getItem('cookiesChoice'))) {
+    console.log('Choix des cookies: ', JSON.parse(sessionStorage.getItem('cookiesChoice')));
+    // if in sessionStorage: close modalCookies
+    dispatch(closeCookies());
+  }
+  else {
+    // if is not in sessionStorage: do nothing so let's display modalCookies
+    console.log("il n'y a rien dans le sessionstorage");
+  }
+
+  // TODO passer dans un useEffect? lorsque state cookie change?
   // state to know if the cookies are true or false
   const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
   // state to put loading true or false

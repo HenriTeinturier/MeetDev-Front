@@ -39,6 +39,7 @@ export const initialState = {
     dev_id: '',
     recruit_id: '',
     cookiesLoad: true,
+    cookiesInLocalStorage: false,
   },
   navigation: {
     windowSendMessage: false, // open Modal Send Message
