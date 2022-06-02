@@ -10,6 +10,7 @@ import {
   burgerMenuOpen,
   loading,
   loginBurger, logout, setFromAway, setFromFavoritesRoute, setFromSearchRoute,
+  isRecruiter as setRecruiter, isDev as setDev,
 } from '../../actions/settings';
 import { loginTest, recruiterFavorites } from '../../actions/middleware';
 import { login } from '../../actions/formLogin';
@@ -186,7 +187,7 @@ function BurgerMenu() {
                     className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'}
                     onClick={() => {
                       window.scrollTo(0, 0);
-                      isDev();
+                      dispatch(setDev());
                       closeMenu();
                     }}
                   >
@@ -201,7 +202,7 @@ function BurgerMenu() {
                     className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'}
                     onClick={() => {
                       window.scrollTo(0, 0);
-                      isRecruiter();
+                      dispatch(setRecruiter());
                       closeMenu();
                     }}
                   >
