@@ -99,7 +99,14 @@ function ModifyDev() {
                   )
                 }
           {/* button to open avatar modal */}
-          <button type="button" onClick={() => dispatch(chooseAvatarModal())}>Choisir son avatar</button>
+          <button
+            type="button"
+            onClick={() => {
+              window.scrollTo(0, 0);
+              dispatch(chooseAvatarModal());
+            }}
+          >Choisir son avatar
+          </button>
           {
                   displayChooseAvatarModal && <ModalChooseAvatar />
                 }
@@ -248,7 +255,10 @@ function ModifyDev() {
           <button
             type="button"
             className="inscription__form__champ--stack"
-            onClick={() => dispatch(toggleModalChooseTechnologie())}
+            onClick={() => {
+              window.scrollTo(0, 0);
+              dispatch(toggleModalChooseTechnologie());
+            }}
           >
             Choisir ma Stack
           </button>

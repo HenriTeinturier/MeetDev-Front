@@ -373,7 +373,10 @@ function Inscription() {
                 <button
                   type="button"
                   className="inscription__form__champ--stack"
-                  onClick={() => dispatch(toggleModalChooseTechnologie())}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    dispatch(toggleModalChooseTechnologie());
+                  }}
                 >
                   Choisir ma Stack
                 </button>
