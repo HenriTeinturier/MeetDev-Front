@@ -4,7 +4,9 @@ import axios from 'axios';
 // == Import action creator
 import { favoritesList } from '../actions/favoritesaction';
 // == Import action
-import { ADD_ONE_FAVORITE, DELETE_ONE_FAVORITE, RECRUITER_FAVORITES } from '../actions/middleware';
+import {
+  ADD_ONE_FAVORITE, DELETE_ONE_FAVORITE, recruiterFavorites, RECRUITER_FAVORITES,
+} from '../actions/middleware';
 /*
     permet de récupérer dans la variable d'environnement (.env)
     l'url du serveur selon que l'on soit en production ou en dévelopment.
@@ -110,9 +112,9 @@ const favorisFromApi = (store) => (next) => (action) => {
             },
           },
         )
-        .then((response) => {
-          console.log(response.data);
+        .then(() => {
           console.log('favori bien supprimé de la liste');
+          store.dispatch(recruiterFavorites());
         }).catch((error) => {
           console.log(error.response.data);
         });
