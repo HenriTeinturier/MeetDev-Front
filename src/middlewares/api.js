@@ -42,7 +42,13 @@ const apiMiddleWare = (store) => (next) => (action) => {
       )
         .then((response) => {
           // Récupération des données reçus de notre demande de login
+          console.log(response);
           console.log(response.data);
+          if (response.data === 'Unauthorized, your email address testing@gmail.com is not verified.') {
+            console.log('email non vérifié');
+            store.dispatch(loading());
+          }
+
           const { status } = response.data;
           // récupération du message lié au statut de la réponse
           const statusMessage = response.data.message;
@@ -119,6 +125,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
           }
         }).catch((error) => {
           console.log(error.response);
+          store.dispatch(loading());
         });
       next(action);
       break;
