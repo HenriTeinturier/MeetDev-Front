@@ -349,6 +349,7 @@ function ProfilDev() {
                 // type="button"
                   className="profilDev__header__about--favorite"
                   onClick={() => {
+                    window.scrollTo(0, 0);
                     dispatch(addOneFavorite());
                     dispatch(recruiterFavorites());
                   }}
