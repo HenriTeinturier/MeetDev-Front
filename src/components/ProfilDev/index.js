@@ -7,7 +7,7 @@ import ModalSendMessage from '../ModalSendMessage';
 // == Import action creator
 import { setToggleModalSendMessage } from '../../actions/settings';
 import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
-import { addOneFavorite } from '../../actions/middleware';
+import { addOneFavorite, recruiterFavorites } from '../../actions/middleware';
 // == Import styles
 import './profilDev.scss';
 // == Import img
@@ -344,22 +344,22 @@ function ProfilDev() {
             // Display 'add to favorites' only if we come from search Route or
             // Favorites Route and i'm recruiter
             ((fromSearch || fromFavorites) && isRec) && (
-              <div
+              <Link to="/favoris">
+                <div
                 // type="button"
-                className="profilDev__header__about--favorite"
-                onClick={() => {
-                  dispatch(addOneFavorite());
-                }}
-              >
-                <img
-                  src={addfavorites}
-                  alt="add favorites"
                   className="profilDev__header__about--favorite"
-                  // onClick={() => {
-                  //   dispatch(addOneFavorite());
-                  // }}
-                /> Ajouter aux favoris
-              </div>
+                  onClick={() => {
+                    dispatch(addOneFavorite());
+                    dispatch(recruiterFavorites());
+                  }}
+                >
+                  <img
+                    src={addfavorites}
+                    alt="add favorites"
+                    className="profilDev__header__about--favorite"
+                  /> Ajouter aux favoris
+                </div>
+              </Link>
             )
           }
 
