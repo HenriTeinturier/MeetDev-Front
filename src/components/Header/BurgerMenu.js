@@ -185,7 +185,9 @@ function BurgerMenu() {
                     transition={{ delay: 0.35, duration: 0.2 }}
                     className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'}
                     onClick={() => {
-                      window.scrollTo(0, 0); closeMenu();
+                      window.scrollTo(0, 0);
+                      isDev();
+                      closeMenu();
                     }}
                   >
                     <NavLink to="/home-developer">
@@ -198,7 +200,9 @@ function BurgerMenu() {
                     transition={{ delay: 0.45, duration: 0.2 }}
                     className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'}
                     onClick={() => {
-                      window.scrollTo(0, 0); closeMenu();
+                      window.scrollTo(0, 0);
+                      isRecruiter();
+                      closeMenu();
                     }}
                   >
                     <NavLink to="/home-recruiter">
