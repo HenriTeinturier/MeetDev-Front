@@ -18,17 +18,17 @@ else if (process.env.NODE_ENV === 'production') {
 const verifiedEmail = (store) => (next) => (action) => {
   switch (action.type) {
     case VERIFY_USER_EMAIL: {
-      console.log('arrive dans middleware verify email');
+      // console.log('arrive dans middleware verify email');
       const tok = action.token;
       const params = {
         token: tok,
       };
-      console.log(tok);
+      // console.log(tok);
       const url = `${baseUrl}/api/email/verify`;
 
       axios.post(url, params)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           const requestStatus = response.data.status;
 
           // if (requestStatus === 'success' && requestStatus === 200) {
@@ -45,8 +45,8 @@ const verifiedEmail = (store) => (next) => (action) => {
 
     case RESEND_VERIFICATION: {
       axios.post('http://localhost:8080/email/request-verification')
-        .then((response) => {
-          console.log(response.data);
+        .then(() => {
+          // console.log(response.data);
         }).catch((error) => {
           console.log(error.response);
         });

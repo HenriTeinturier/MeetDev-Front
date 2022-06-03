@@ -2,6 +2,7 @@ import './navigationMobile.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 import rocket from '../../assets/images/rocket.png';
 import { burgerMenuOpen, toggleDarkMode } from '../../actions/settings';
 import BurgerMenu from './BurgerMenu';
@@ -29,7 +30,9 @@ function NavigationMobile() {
           src={rocket}
           alt="logo fusée"
         />
-        <div
+
+        <Link
+          to="/"
           className="navigationMobile__header--title"
           onClick={() => {
             // console.log(profilRec);
@@ -37,7 +40,8 @@ function NavigationMobile() {
           }}
         >
           Meet Dev
-        </div>
+        </Link>
+
       </div>
       {
             isDarkMode && (

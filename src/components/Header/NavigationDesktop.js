@@ -2,6 +2,7 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md';
+import { IoHomeSharp } from 'react-icons/io5';
 import rocket from '../../assets/images/rocket.png';
 import {
   logout, toggleWindowLog, setFromAway, setFromSearchRoute, setFromFavoritesRoute, toggleDarkMode,
@@ -21,7 +22,12 @@ function NavigationDesktop() {
       { !logged && (
         <>
           <div className="header__enSavoirPlus">
-            <Link to="/en-savoir-plus">En savoir plus</Link>
+            <Link to="/">
+              <IoHomeSharp className={isDarkMode ? 'header__menu__clearModeIcon dark' : 'header__menu__clearModeIcon'} />
+            </Link>
+            <div className="header__enSavoirPlus--link">
+              <Link to="/en-savoir-plus">En savoir plus</Link>
+            </div>
           </div>
           {
             isDarkMode && (

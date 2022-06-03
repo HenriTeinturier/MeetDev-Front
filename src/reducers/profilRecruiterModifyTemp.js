@@ -27,7 +27,7 @@ export const initialState = {
 const profilRecruiterModifyTemp = (state = initialState, action = {}) => {
   switch (action.type) {
     case COPY_PROFIL_REC_TO_TEMP: {
-      console.log(action.profilRec);
+      // console.log(action.profilRec);
       return {
         ...state,
         register: {

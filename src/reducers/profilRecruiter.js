@@ -36,7 +36,7 @@ const profilRecruiter = (state = initialState, action = {}) => {
       };
     }
     case MAJ_PROFIL_RECRUITER_FROM_API: {
-      console.log(action.user);
+      // console.log(action.user);
       return {
         ...state,
         register: {

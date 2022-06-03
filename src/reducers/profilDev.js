@@ -44,7 +44,7 @@ const profilDev = (state = initialState, action = {}) => {
     }
 
     case MAJ_PROFIL_DEV_FROM_API: {
-      console.log(action.user);
+      // console.log(action.user);
       return {
         ...state,
         register: {

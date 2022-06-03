@@ -48,8 +48,8 @@ const apiMiddleWare = (store) => (next) => (action) => {
       )
         .then((response) => {
           // Récupération des données reçus de notre demande de login
-          console.log(response);
-          console.log(response.data);
+          // console.log(response);
+          // console.log(response.data);
           if (response.data === 'Unauthorized, your email address testing@gmail.com is not verified.') {
             console.log('email non vérifié');
             store.dispatch(loading());
@@ -60,7 +60,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
             // settimeout 2s masquer message
             setTimeout(() => {
               store.dispatch(hideMessage());
-            }, 3000);
+            }, 2000);
           }
 
           const { status } = response.data;
@@ -86,7 +86,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
             // settimeout 2s masquer message
             setTimeout(() => {
               store.dispatch(hideMessage());
-            }, 3000);
+            }, 2000);
             if (isDev) {
               // changement du state settings: isDev: true
               store.dispatch(actionIsDev());
@@ -155,7 +155,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
           // settimeout 2s masquer message
           setTimeout(() => {
             store.dispatch(hideMessage());
-          }, 3000);
+          }, 2000);
         });
       next(action);
       break;

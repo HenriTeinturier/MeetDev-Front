@@ -38,8 +38,8 @@ const ModifyRecruiterApi = (store) => (next) => (action) => {
       } = state.profilRecruiterModifyTemp.register;
       const userId = state.settings.log.user_id;
       const { token } = state.settings.log;
-      console.log(token);
-      console.log(userId);
+      // console.log(token);
+      // console.log(userId);
       const config = {
         headers: {
           // 'Content-Type': 'application/json',
@@ -75,11 +75,11 @@ const ModifyRecruiterApi = (store) => (next) => (action) => {
       // DONNES DU COUP JE RECUPERE LES INFOS DE RECRUITERTEMP
       // POUR MISE A JOUR
       axios.put(url, params, config)
-        .then((response) => {
+        .then(() => {
           const recruiterModifie = state.profilRecruiterModifyTemp.register;
-          console.log(recruiterModifie);
-          console.log('modication réussi');
-          console.log(response.data);
+          // console.log(recruiterModifie);
+          // console.log('modication réussi');
+          // console.log(response.data);
           store.dispatch(majProfilRecruiterFromApi(recruiterModifie));
         }).catch((error) => {
           console.log('modication echec');

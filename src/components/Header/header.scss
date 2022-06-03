@@ -35,8 +35,12 @@
   &__enSavoirPlus {
     font-size: 1.3rem;
     font-weight: bold;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 16rem;
 
-    &:after {
+    &--link:after {
       display: block;
       content: '';
       border-bottom: solid 3px vars.$mainColor;
@@ -44,7 +48,7 @@
       transition: transform 250ms ease-in-out;
     }
 
-    &:hover:after {
+    &--link:hover:after {
       transform: scaleX(1);
     }
 
@@ -93,6 +97,10 @@
       margin-left: 1.5rem;
       width: 2rem;
       height: 2rem;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     &--item {
