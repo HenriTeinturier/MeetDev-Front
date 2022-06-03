@@ -333,6 +333,7 @@ function ProfilDev() {
                   type="button"
                   className={isDark ? 'profilDev__header__about__mail--txt dark' : 'profilDev__header__about__mail--txt'}
                   onClick={() => {
+                    window.scrollTo(0, 0);
                     dispatch(setToggleModalSendMessage());
                   }}
                 >Envoyer un message
