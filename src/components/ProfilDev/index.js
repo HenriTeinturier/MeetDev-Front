@@ -325,17 +325,20 @@ function ProfilDev() {
       {
             // Display button 'send message' only if we come from search Route or Favorites Route
             (fromSearch || fromFavorites) && (
-              <div className="profilDev__header__about__mail">
+              <div
+                className="profilDev__header__about__mail"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  dispatch(setToggleModalSendMessage());
+                }}
+              >
                 <div className={isDark ? 'profilDev__header__about__mail--logo dark' : 'profilDev__header__about__mail--logo'}>
                   <GrMail />
                 </div>
                 <p
                   type="button"
                   className={isDark ? 'profilDev__header__about__mail--txt dark' : 'profilDev__header__about__mail--txt'}
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                    dispatch(setToggleModalSendMessage());
-                  }}
+
                 >Envoyer un message
                 </p>
               </div>
