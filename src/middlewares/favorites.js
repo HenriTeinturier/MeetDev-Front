@@ -85,6 +85,7 @@ const favorisFromApi = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           console.log('favori bien ajouté de la liste');
+          store.dispatch(recruiterFavorites());
         }).catch((error) => {
           console.log(error.response.data);
         });
