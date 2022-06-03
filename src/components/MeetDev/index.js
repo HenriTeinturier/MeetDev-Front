@@ -10,6 +10,7 @@ import Footer from '../Footer';
 import Error from '../Error';
 import Inscription from '../Inscription';
 import Connexion from '../Connexion';
+import Message from '../Message';
 // import VerifyEmail from '../VerifyEmail';
 import Search from '../Search';
 import Favoris from '../Favoris';
@@ -50,6 +51,8 @@ function MeetDev() {
   // state to put loading true or false
   const loading = useSelector((state) => state.settings.navigation.loading);
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
+  // state to display message or not
+  // const isMessage = useSelector((state) => state.settings.navigation.displayMessage);
 
   return (
     <div className={isDark ? 'meetdevWrapper dark' : 'meetdevWrapper'}>
@@ -63,6 +66,8 @@ function MeetDev() {
             <RocketLoading />
           )
         }
+        <Message />
+
         {
           !loading && (
             <>

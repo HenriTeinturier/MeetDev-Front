@@ -24,6 +24,9 @@ import {
   CLOSE_COOKIES,
   LOADING,
   TOGGLE_DARK_MODE,
+  MESSAGE_CONTENT,
+  DISPLAY_MESSAGE,
+  HIDE_MESSAGE,
 
 } from '../actions/settings';
 
@@ -55,11 +58,42 @@ export const initialState = {
     burgerLogin: false,
     loading: false,
     darkMode: true,
+    displayMessage: false,
+    contentMessage: '',
+    validateMessage: false,
   },
 };
 
 const settings = (state = initialState, action = {}) => {
   switch (action.type) {
+    case DISPLAY_MESSAGE: {
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          displayMessage: true,
+        },
+      };
+    }
+    case HIDE_MESSAGE: {
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          displayMessage: false,
+        },
+      };
+    }
+    case MESSAGE_CONTENT: {
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          contentMessage: action.content,
+          validateMessage: action.validate,
+        },
+      };
+    }
     case TOGGLE_DARK_MODE: {
       return {
         ...state,
