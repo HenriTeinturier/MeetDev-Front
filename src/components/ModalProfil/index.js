@@ -185,6 +185,7 @@ function ModalProfil() {
                 type="button"
                 onClick={() => {
                   dispatch(setToggleModalProfil());
+                  window.scrollTo(0, 0);
                 }}
               >
                 Voir Profil

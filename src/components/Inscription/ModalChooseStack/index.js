@@ -359,9 +359,9 @@ function ModalChooseStack() {
           </div>
         </div>
 
-        <div className="chooseStackContainer__cancel">
-          <button className={isDark ? 'chooseStackContainer__cancel--button dark' : 'chooseStackContainer__cancel--button'} type="button" onClick={() => dispatch(toggleModalChooseTechnologie())}>
-            Fermeture
+        <div className="chooseStackContainer__valid">
+          <button className={isDark ? 'chooseStackContainer__valid--button dark' : 'chooseStackContainer__valid--button'} type="button" onClick={() => dispatch(toggleModalChooseTechnologie())}>
+            Valider
           </button>
         </div>
 

@@ -1,6 +1,8 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 import './home.scss';
 
+// import express from 'express';
+
 import { useDispatch, useSelector } from 'react-redux';
 // == Import action creator
 import { isDev, isRecruiter } from '../../actions/settings';
@@ -67,13 +69,27 @@ function Home() {
           <form className="home__choice">
             <Link to="/home-developer">
               {/* button to go in the home page developer */}
-              <button className="home__choice--button" type="button" onClick={() => dispatch(isDev())}>
+              <button
+                className="home__choice--button"
+                type="button"
+                onClick={() => {
+                  dispatch(isDev());
+                  window.scrollTo(0, 0);
+                }}
+              >
                 Dev
               </button>
             </Link>
             <Link to="/home-recruiter">
               {/* button to go in the home page recruiter */}
-              <button className="home__choice--button" type="button" onClick={() => dispatch(isRecruiter())}>
+              <button
+                className="home__choice--button"
+                type="button"
+                onClick={() => {
+                  dispatch(isRecruiter());
+                  window.scrollTo(0, 0);
+                }}
+              >
                 Recruteur
               </button>
             </Link>

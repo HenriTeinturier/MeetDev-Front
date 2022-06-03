@@ -62,7 +62,7 @@ const profilDevModifyTemp = (state = initialState, action = {}) => {
       };
     }
     case COPY_PROFIL_DEV_TO_TEMP: {
-      console.log(action.profilDev);
+      // console.log(action.profilDev);
       return {
         ...state,
         register: {

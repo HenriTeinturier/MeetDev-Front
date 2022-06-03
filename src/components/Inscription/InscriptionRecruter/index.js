@@ -8,12 +8,11 @@ import {
   chooseAvatarModal,
   logout,
   searchCityClose,
-  searchCityDisplay,
   setFromInscriptionRoute,
   toggleWindowLog,
 } from '../../../actions/settings';
 import { registerRecruiter, registerRecruiterCancel } from '../../../actions/formRegisterRecruiter';
-import { inscriptionRecruiter, searchCity } from '../../../actions/middleware';
+import { inscriptionRecruiter } from '../../../actions/middleware';
 // == Import avatars
 import companyAvatar1 from '../../../assets/avatars/avatar_company1.png';
 import companyAvatar2 from '../../../assets/avatars/avatar_company2.png';
@@ -146,9 +145,9 @@ function InscriptionRecruter() {
               // controlled form field
               handleChangeForm(e);
               // send request to API with controlled form fiel value
-              dispatch(searchCity());
+              // dispatch(searchCity());
               // display the result of API request under the field input
-              dispatch(searchCityDisplay());
+              // dispatch(searchCityDisplay());
             }}
           />
           {
@@ -162,8 +161,8 @@ function InscriptionRecruter() {
                               onClick={() => {
                                 // save postcode and city name in state
                                 // console.log(Math.ceil(e.properties.postCode / 1000));
-                                console.log(e.properties.postcode);
-                                console.log(Math.floor((e.properties.postcode) / 1000));
+                                // console.log(e.properties.postcode);
+                                // console.log(Math.floor((e.properties.postcode) / 1000));
 
                                 dispatch(registerRecruiter(e.properties.city, 'city'));
                                 dispatch(registerRecruiter(e.properties.postcode, 'zipCode'));

@@ -1,6 +1,7 @@
 @use '../../styles/vars';
 
 .navigationMobile {
+  position: relative;
   transition: 0.2s;
   height: 10vh;
   min-height: 75px;
@@ -35,6 +36,10 @@
         margin-left: 1.5rem;
         width: 2rem;
         height: 2rem;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
@@ -64,7 +69,7 @@
     }
   }
 
-  @media (min-width: 721px) {
+  @media (min-width: 769px) {
     display: none;
   }
 }

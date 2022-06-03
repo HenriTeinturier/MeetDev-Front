@@ -1,15 +1,36 @@
 // == Import npm
 import axios from 'axios';
 // == Import action
-import { LOGIN_TEST, TEST_CONNEXION_BACK } from '../actions/middleware';
+import { LOGIN_TEST } from '../actions/middleware';
 // == Import action creator
 import { dataProfilDevFromApi } from '../actions/profilDev';
 import { dataProfilRecruiterFromApi } from '../actions/profilRecruiter';
 import {
-  logged, isDev as actionIsDev, isRecruiter as actionIsRecruiter, loading,
+  logged,
+  isDev as actionIsDev,
+  isRecruiter as actionIsRecruiter,
+  loading,
+  messageContent,
+  displayMessage,
+  hideMessage,
 } from '../actions/settings';
 
 const apiMiddleWare = (store) => (next) => (action) => {
+  /*
+    permet de récupérer dans la variable d'environnement (.env)
+    l'url du serveur selon que l'on soit en production ou en dévelopment.
+  */
+  let baseUrl;
+  if (process.env.NODE_ENV === 'development') {
+    // console.log(process.env.REACT_APP_PUBLIC_DEV_URL);
+    baseUrl = process.env.REACT_APP_PUBLIC_DEV_URL;
+  }
+  else if (process.env.NODE_ENV === 'production') {
+    // console.log(process.env.REACT_APP_PUBLIC_PROD_URL);
+    baseUrl = process.env.REACT_APP_PUBLIC_PROD_URL;
+  }
+  // console.log(`${baseUrl}/api/login`);
+
   switch (action.type) {
     // TODO changer le nom de cette action.
     // Login rentrait en conflit avec une autre action d'un autre reducer
@@ -17,7 +38,8 @@ const apiMiddleWare = (store) => (next) => (action) => {
       const state = store.getState();
       const { email, password } = state.formLogin.login;
       axios.post(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login',
+        // 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login',
+        `${baseUrl}/api/login`,
         // ou url: 'http://localhost/api/users:8000',
         {
           email_address: email,
@@ -26,7 +48,21 @@ const apiMiddleWare = (store) => (next) => (action) => {
       )
         .then((response) => {
           // Récupération des données reçus de notre demande de login
-          console.log(response.data);
+          // console.log(response);
+          // console.log(response.data);
+          if (response.data === 'Unauthorized, your email address testing@gmail.com is not verified.') {
+            console.log('email non vérifié');
+            store.dispatch(loading());
+            // envoyer message erreur ou validate + message content
+            store.dispatch(messageContent('Email non vérifié', false));
+            // afficher message
+            store.dispatch(displayMessage());
+            // settimeout 2s masquer message
+            setTimeout(() => {
+              store.dispatch(hideMessage());
+            }, 2000);
+          }
+
           const { status } = response.data;
           // récupération du message lié au statut de la réponse
           const statusMessage = response.data.message;
@@ -43,6 +79,14 @@ const apiMiddleWare = (store) => (next) => (action) => {
 
           // TEST SI SUCCESS
           if (status === 'success' && statusMessage === 'Login successfull') {
+            // envoyer message erreur ou validate + message content
+            store.dispatch(messageContent('connexion réussie', true));
+            // afficher message
+            store.dispatch(displayMessage());
+            // settimeout 2s masquer message
+            setTimeout(() => {
+              store.dispatch(hideMessage());
+            }, 2000);
             if (isDev) {
               // changement du state settings: isDev: true
               store.dispatch(actionIsDev());
@@ -103,21 +147,15 @@ const apiMiddleWare = (store) => (next) => (action) => {
           }
         }).catch((error) => {
           console.log(error.response);
-        });
-      next(action);
-      break;
-    }
-
-    case TEST_CONNEXION_BACK: {
-      axios({
-        method: 'get',
-        url: 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users',
-        // ou url: 'http://localhost/api/users:8000',
-      })
-        .then((response) => {
-          console.log(response.data);
-        }).catch((error) => {
-          console.log(error);
+          store.dispatch(loading());
+          // envoyer message erreur ou validate + message content
+          store.dispatch(messageContent('mauvais email ou mot de passe', false));
+          // afficher message
+          store.dispatch(displayMessage());
+          // settimeout 2s masquer message
+          setTimeout(() => {
+            store.dispatch(hideMessage());
+          }, 2000);
         });
       next(action);
       break;

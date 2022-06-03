@@ -35,7 +35,7 @@ export const initialState = {
 const modalProdil = (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH_PROFILE_MODALE: {
-      console.log(action.user.data);
+      // console.log(action.user.data);
       return {
         ...state,
         result: {
@@ -69,7 +69,7 @@ const modalProdil = (state = initialState, action = {}) => {
       };
     }
     case GET_ONE_FAVORITE: {
-      console.log(action.user);
+      // console.log(action.user);
       return {
         ...state,
         result: {

@@ -147,6 +147,7 @@ function RecruiterProfile() {
             type="button"
             onClick={() => {
               // console.log(profilRec);
+              window.scrollTo(0, 0);
               dispatch(handlecopy());
             }}
           >

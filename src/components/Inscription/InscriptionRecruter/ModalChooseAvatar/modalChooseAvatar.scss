@@ -23,12 +23,13 @@
 }
 
 .chooseAvatarContainer {
+  // position: fixed;
   transition: 0.2s;
   z-index: 3;
   margin-top: 15rem;
   background-color: vars.$mainBackground;
   border-radius: 0.8rem;
-  width: 45rem;
+  width: 20rem;
   // width: 45rem;
   // height: 30rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -37,7 +38,8 @@
   flex-wrap: wrap;
   padding: 1.5rem 2.5rem;
 
-  @media (max-width: 665px) {
+  @media (max-width: 767px) {
+    width: auto;
     padding: 1.5rem 0.5rem;
     flex-direction: column;
     align-items: center;

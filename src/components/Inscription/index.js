@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -92,11 +92,11 @@ function Inscription() {
   }
 
   function validInscription() {
-    console.log('arrive dans valid inscription');
+    // console.log('arrive dans valid inscription');
     const array = [error.firstnameEmpty, error.lastnameEmpty, error.emailEmpty, error.emailTestEmpty, error.cityEmpty, error.phoneEmpty, error.experienceEmpty, error.passwordEmpty, error.verifyPasswordEmpty, error.salaryEmpty, error.englishEmpty, error.labelEmpty, error.descriptionEmpty];
-    console.log(array);
+    // console.log(array);
     if (array.every((e) => e === false)) {
-      console.log('envoi inscription back');
+      // console.log('envoi inscription back');
       // console.log(Object.values(error).every((e) => e === false));
       dispatch(inscriptionDev());
       navigate('/');
@@ -192,10 +192,14 @@ function Inscription() {
     // validInscription();
   }
 
-  console.log(Object.values(error));
+  // console.log(Object.values(error));
 
   return (
     <>
+      { /* if i'm not logged return to home  */ }
+      {
+         (!isRecruiter && !isDev) && (<Navigate to="/" />)
+        }
       {/* if user is recruiter go to component inscription recruiter */}
       {
         isRecruiter && <InscriptionRecruter />
@@ -277,8 +281,8 @@ function Inscription() {
                               onClick={() => {
                                 // save postcode and city name in state
                                 // console.log(Math.ceil(e.properties.postCode / 1000));
-                                console.log(e.properties.postcode);
-                                console.log(Math.floor((e.properties.postcode) / 1000));
+                                // console.log(e.properties.postcode);
+                                // console.log(Math.floor((e.properties.postcode) / 1000));
 
                                 dispatch(registerDev(e.properties.city, 'city'));
                                 dispatch(registerDev(e.properties.postcode, 'zipCode'));
@@ -373,7 +377,10 @@ function Inscription() {
                 <button
                   type="button"
                   className="inscription__form__champ--stack"
-                  onClick={() => dispatch(toggleModalChooseTechnologie())}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    dispatch(toggleModalChooseTechnologie());
+                  }}
                 >
                   Choisir ma Stack
                 </button>

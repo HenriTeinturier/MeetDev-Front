@@ -13,7 +13,14 @@
   align-items: flex-start;
 }
 
+.dark {
+  &.chooseStackBackground {
+    background-color: rgb(0, 0, 0, 0.4);
+  }
+}
+
 .chooseStackContainer {
+  // position: fixed;
   margin-top: 15rem;
   z-index: 3;
   background-color: vars.$mainBackground;
@@ -27,7 +34,8 @@
   flex-wrap: wrap;
   padding: 1.5rem 2.5rem;
 
-  @media (max-width: 665px) {
+  @media (max-width: 765px) {
+    width: auto;
     padding: 1.5rem 0.5rem;
     flex-direction: column;
     align-items: center;
@@ -76,6 +84,38 @@
         transform: scale(1.1);
         transition: transform 0.3s;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.dark {
+  &.chooseStackContainer {
+    background-color: vars.$mainBackgroundformDark;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    @media (max-width: 765px) {}
+
+    &--title {
+      color: vars.$mainColor;
+      border-bottom: 1px solid vars.$mainFontGrey;
+    }
+
+    &__stacks {}
+
+    &__stack {
+      color: vars.$mainFontSecondaryDark;
+    }
+
+    &__cancel {
+
+      & button {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+
+        &:hover {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
       }
     }
   }

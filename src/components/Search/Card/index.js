@@ -55,6 +55,7 @@ function Title({
       onClick={() => {
         dispatch(fetchProfileModale(user));
         dispatch(setToggleModalProfil());
+        window.scrollTo(0, 0);
       }}
     >
       <img

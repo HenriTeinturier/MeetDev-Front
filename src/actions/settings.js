@@ -164,3 +164,26 @@ export const LOADING = 'LOADING';
 export const loading = () => ({
   type: LOADING,
 });
+
+// ACTION TYPE MESSAGE_CONTENT
+export const MESSAGE_CONTENT = 'MESSAGE_CONTENT';
+// ACTION CREATOR messageContent
+export const messageContent = (content, validate) => ({
+  type: MESSAGE_CONTENT,
+  content,
+  validate,
+});
+
+// ACTION TYPE DISPLAY_MESSAGE
+export const DISPLAY_MESSAGE = 'DISPLAY_MESSAGE';
+// ACTION CREATOR displayMessage
+export const displayMessage = () => ({
+  type: DISPLAY_MESSAGE,
+});
+
+// ACTION TYPE HIDE_MESSAGE
+export const HIDE_MESSAGE = 'HIDE_MESSAGE';
+// ACTION CREATOR hideMessage
+export const hideMessage = () => ({
+  type: HIDE_MESSAGE,
+});
