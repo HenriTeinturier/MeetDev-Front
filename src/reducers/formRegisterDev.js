@@ -82,7 +82,7 @@ const formRegisterDev = (state = initialState, action = {}) => {
     }
     // update this state for controlled field from inscription form
     case REGISTER_DEV: {
-      console.log(action.name, action.value);
+      // console.log(action.name, action.value);
       return {
         ...state,
         register: {

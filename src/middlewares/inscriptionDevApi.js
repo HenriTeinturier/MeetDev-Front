@@ -78,9 +78,9 @@ const inscriptionDevApi = (store) => (next) => (action) => {
           language: '', // non pris en compte: Obligatoire?
         },
       )
-        .then((response) => {
-          console.log(response.data);
-          console.log('formulaire envoyé');
+        .then(() => {
+          // console.log(response.data);
+          // console.log('formulaire envoyé');
         }).catch((error) => {
           console.log(error.response.data);
         });

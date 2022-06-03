@@ -24,7 +24,7 @@ const sendMailApi = (store) => (next) => (action) => {
       const state = store.getState();
       const { fromSearchRoute, fromFavoritesRoute } = state.settings.navigation;
       const { token } = state.settings.log;
-      const mailToSend = state.modalProfil.result.email;
+      // const mailToSend = state.modalProfil.result.email;
       const sender = state.settings.log.user_id;
       let receiver;
       if (fromSearchRoute) {
@@ -35,7 +35,7 @@ const sendMailApi = (store) => (next) => (action) => {
       }
       const messageTitle = state.formDevContact.formContact.title;
       const messageContent = state.formDevContact.formContact.message;
-      console.log(mailToSend, sender, receiver, messageTitle, messageContent);
+      // console.log(mailToSend, sender, receiver, messageTitle, messageContent);
 
       axios
         .get(
@@ -57,8 +57,8 @@ const sendMailApi = (store) => (next) => (action) => {
             },
           },
         )
-        .then((response) => {
-          console.log(response.data);
+        .then(() => {
+          // console.log(response.data);
           store.dispatch(contactDevRaz());
 
           // store.dispatch(favoritesList(favorites));

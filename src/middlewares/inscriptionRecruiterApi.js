@@ -73,9 +73,9 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
           minimum_salary_requested: 40000, // non dynamique pour le moment
         },
       )
-        .then((response) => {
-          console.log(response.data);
-          console.log('formulaire envoyé');
+        .then(() => {
+          // console.log(response.data);
+          // console.log('formulaire envoyé');
         }).catch((error) => {
           console.log(error.response.data);
         });

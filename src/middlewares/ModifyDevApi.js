@@ -77,12 +77,12 @@ const ModifyDevApi = (store) => (next) => (action) => {
       };
 
       const url = `${baseUrl}/api/secure/users/${userId}`;
-      console.log('ligne 68');
-      axios.put(url, params, config).then((response) => {
-        console.log(response.data);
-        console.log('modification envoyé');
+      // console.log('ligne 68');
+      axios.put(url, params, config).then(() => {
+        // console.log(response.data);
+        // console.log('modification envoyé');
         const developperModifie = state.profilDevModifyTemp.register;
-        console.log(developperModifie);
+        // console.log(developperModifie);
         store.dispatch(majProfilDevFromApi(developperModifie));
         // navigate('/profil');
         // TODO BACK VA COIRRIGER POUR ME RENVOYER LES INFOS AVEC LA REPONSE

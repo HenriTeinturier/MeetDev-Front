@@ -46,7 +46,7 @@ const favorisFromApi = (store) => (next) => (action) => {
         .then((response) => {
           const responseArray = response.data.favoriteUsersData;
 
-          console.log(response.data);
+          // console.log(response.data);
           const favorites = responseArray.map((character, index) => ({
             data: response.data.favoriteUsersData[index],
             detailId: response.data.favoritesDetails[index].id,
@@ -83,8 +83,8 @@ const favorisFromApi = (store) => (next) => (action) => {
       axios
         .post(url, params, config)
         .then((response) => {
-          console.log(response.data);
-          console.log('favori bien ajouté de la liste');
+          // console.log(response.data);
+          // console.log('favori bien ajouté de la liste');
           store.dispatch(recruiterFavorites());
         }).catch((error) => {
           console.log(error.response.data);
@@ -114,7 +114,7 @@ const favorisFromApi = (store) => (next) => (action) => {
           },
         )
         .then(() => {
-          console.log('favori bien supprimé de la liste');
+          // console.log('favori bien supprimé de la liste');
           store.dispatch(recruiterFavorites());
         }).catch((error) => {
           console.log(error.response.data);

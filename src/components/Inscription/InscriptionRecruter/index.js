@@ -161,8 +161,8 @@ function InscriptionRecruter() {
                               onClick={() => {
                                 // save postcode and city name in state
                                 // console.log(Math.ceil(e.properties.postCode / 1000));
-                                console.log(e.properties.postcode);
-                                console.log(Math.floor((e.properties.postcode) / 1000));
+                                // console.log(e.properties.postcode);
+                                // console.log(Math.floor((e.properties.postcode) / 1000));
 
                                 dispatch(registerRecruiter(e.properties.city, 'city'));
                                 dispatch(registerRecruiter(e.properties.postcode, 'zipCode'));

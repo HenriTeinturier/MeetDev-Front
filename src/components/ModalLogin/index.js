@@ -16,14 +16,14 @@ function ModalLogin() {
   const dispatch = useDispatch();
 
   const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
-  console.log(isVerified);
+  // console.log(isVerified);
 
   const hasSlug = useSelector((state) => state.verifyEmail.slug);
 
   /* const params = useParams();
   console.log(params);
   const { slug } = params; */
-  console.log(hasSlug);
+  // console.log(hasSlug);
 
   function handleChangeForm(e) {
     const { value } = e.target;

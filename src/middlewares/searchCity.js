@@ -11,10 +11,10 @@ const searchCity = (store) => (next) => (action) => {
       const state = store.getState();
       let adress = state.formRegisterDev.register.city;
       if (!adress) {
-        console.log('recupadressdans temp modify');
+        // console.log('recupadressdans temp modify');
         adress = state.profilDevModifyTemp.register.city;
       }
-      console.log(adress);
+      // console.log(adress);
       axios.get(
         `https://api-adresse.data.gouv.fr/search/?q=${adress}&type=municipality&autocomplete=1`,
         // ou url: 'http://localhost/api/users:8000',

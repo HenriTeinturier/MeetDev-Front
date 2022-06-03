@@ -83,7 +83,7 @@ const searchApi = (store) => (next) => (action) => {
           else {
             console.log('probleme de connexion');
           }
-          console.log(response.data);
+          // console.log(response.data);
         }).catch((error) => {
           console.log(error.response);
           console.log('problème de connexion');
