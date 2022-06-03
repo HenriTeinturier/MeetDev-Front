@@ -69,3 +69,8 @@ Manages the results of a recruiter's favorites list query.
 ## resultSearch
 
 Manages the results of a developper's search list query.
+
+## verifyEmail
+
+Manage if email login is verified or not.  
+Slug is for testing if in the url there is a slug. If there is a slug, it's save in state.verifyEmail.slug
