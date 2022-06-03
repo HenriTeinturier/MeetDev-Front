@@ -82,7 +82,7 @@ const favorisFromApi = (store) => (next) => (action) => {
 
       axios
         .post(url, params, config)
-        .then((response) => {
+        .then(() => {
           // console.log(response.data);
           // console.log('favori bien ajouté de la liste');
           store.dispatch(recruiterFavorites());
