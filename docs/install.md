@@ -18,6 +18,12 @@
 > yarn add react-motion react-icons
 ```
 
+- configurer .env: (needs deployed back or server back local)
+
+``` console
+> copy .env_exemple to .env and enter url of server back local and/or server back production
+```
+
 - to start the project: (needs deployed back to login)
 
 ``` console
