@@ -17,4 +17,6 @@ the spirit of meetdev is facilitate relationships and meetings between developer
 
 The documentation is available in the [docs directory](./docs/)
 
+See the project at [www.meetdev.henriteinturier.fr](http://www.meetdev.henriteinturier.fr)
+
 ![image](./docs/meetdev.png)
